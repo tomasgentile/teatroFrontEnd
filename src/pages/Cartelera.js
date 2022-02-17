@@ -14,7 +14,7 @@ function Cartelera(props) {
     useEffect(() => {
         const cargarObras = async () => {
             setLoadingObras(true);
-            const response = await axios.get('http://localhost:3000/api/obras');
+            const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/obras`);
             setObrasCartelera(response.data);
             setfilteredData(response.data)
             setLoadingObras(false);

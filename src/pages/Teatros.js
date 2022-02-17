@@ -10,7 +10,7 @@ const Teatros = (props) => {
     useEffect(() => {
         const cargarTeatros = async () => {
             setLoadingTeatros(true);
-            const response = await axios.get('http://localhost:3000/api/teatros');
+            const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/teatros`);
             setTeatrosDatos(response.data);
             setLoadingTeatros(false);
         };

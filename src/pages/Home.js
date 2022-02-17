@@ -16,9 +16,9 @@ const Home = (props) => {
     useEffect(() => {
         const cargarDatos = async () => {
             setLoadingDatos(true);
-            const responseObras = await axios.get('http://localhost:3000/api/obras');
+            const responseObras = await axios.get(`${process.env.REACT_APP_API_URL}/api/obras`);
             setObras(responseObras.data);
-            const responseCursos = await axios.get('http://localhost:3000/api/cursos');
+            const responseCursos = await axios.get(`${process.env.REACT_APP_API_URL}/api/cursos`);
             setCursos(responseCursos.data);
             console.log('Datos cargados en Home');
             setLoadingDatos(false);

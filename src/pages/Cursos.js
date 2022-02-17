@@ -14,7 +14,7 @@ const Cursos = (props) => {
     useEffect(() => {
         const cargarDatos = async () => {
             setLoadingCursos(true);
-            const response = await axios.get('http://localhost:3000/api/cursos');
+            const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/cursos`);
             setCursos(response.data);
             setfilteredData(response.data);
             console.log('Datos cargados en cursos');
