@@ -1,0 +1,169 @@
+/* Inicio Subtitles */
+
+.subtitles {
+    display: flex;
+    justify-content: space-between;
+}
+
+.subtitles h2 {
+    color: #f5c518;
+    margin-top: 3em;
+    padding-left: 1em;
+}
+
+.subtitles a {
+    color: #f5c518;
+    font-size: 1.2em;
+    margin-top: 4em;
+    padding-right: 1em;  
+    text-decoration: none; 
+}
+
+/* fin subtitles */
+
+/* Inicio Cartelera */
+
+.cards-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 0 1em;
+    flex-wrap: wrap;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.card button {
+    opacity: 0;
+    text-decoration: none;
+    color: white;
+    background-color: #f5c518;
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    line-height: 2em;
+    top: 35%;
+    left: -100px;
+    transition: all 0.5s ease;
+}
+
+.card:hover {
+    border: 1px solid #f5c518;
+}
+
+.card:hover img {
+    opacity: 0.4;
+}
+
+.card:hover button {
+    opacity: 0.8;
+    left: 0;
+} 
+
+.card:nth-child(5n) {
+    border: 3px solid red;
+}
+
+/* Fin Cartelera */
+
+
+/* Inicio Slider */
+
+.slider {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+    width: 510px;
+    margin: 2em auto 0;
+}
+
+#big_img {
+    width: 500px;
+    height: 500px;
+    transition: all 0.5s ease;
+}
+
+.btn-slider {
+    background-color: black;
+    border-style: none;
+    color: #f5c518;
+    font-weight:bolder;
+    font-size: x-large;
+}
+
+.slider button:hover {
+    cursor:pointer;
+}
+
+#btn-abrir {
+    color: white;
+    background-color: #f5c518;
+    line-height: 100%;
+    opacity: 0;
+    width: 500px;
+    transition: all 0.5s ease;
+    top: 43%;
+    position: absolute;
+    margin: 0 auto;
+    border: none;
+    cursor: pointer;
+}
+
+.slider img:hover {
+    opacity: 0.4;
+}
+
+#big_img:hover ~ #btn-abrir {
+    opacity: 0.8;
+    line-height: 2em;
+}
+
+#btn-abrir:hover {
+    opacity: 0.8;
+    line-height: 2em;
+}
+
+@media screen and (max-width: 768px) {
+
+    .slider {
+        width: 100%;
+    }
+
+    #big_img {
+        width: 350px;
+        height: 350px;
+      }
+}
+
+@media screen and (max-width: 480px) {
+
+    #big_img {
+        width: 280px;
+        height: 280px;
+    }
+
+    .slider {
+        padding: 0;
+        margin: 0;
+    }
+}
+
+
+/* Fin Slider */
+
+
+@media screen and (max-width: 1190px) {
+
+.subtitles h2 {
+    padding-left: 2em;
+} 
+  
+.subtitles a {
+    padding-right: 2em;
+}
+    
+.cards {
+    width: 100%;
+}
+}  

@@ -1,0 +1,55 @@
+
+.teatros {
+    width: 50%;
+    margin: 0 25%;
+}
+
+.teatro {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    color: white;
+    margin-top: 2em;
+    border: 1px solid #f5c518;
+    border-radius: 10px;
+    padding: 1em 0;
+}
+
+.teatro img {
+    height: 12em;
+    width: 12em;
+}
+
+.info_teatro {
+    margin-left: 2em;
+}
+
+.info_teatro p {
+    padding-left: 0;
+}
+
+
+@media screen and (max-width: 1024px) {
+
+.teatros {
+    width: 70%;
+    box-sizing: border-box;
+    padding: 0 2em;
+    margin: 0 auto;
+}
+
+}
+
+@media screen and (max-width: 768px) {
+
+.teatros {
+    width: 80%;
+}
+}
+
+@media screen and (max-width: 480px) {
+
+.teatros {
+    width: 97%;
+}
+}

@@ -1,0 +1,59 @@
+footer {
+    color: white;
+    background-color: #1a1a1a;
+    text-align: center;
+    padding: 2em 0;
+    margin-top: 3em; 
+}
+
+.suscribe-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.newsletter-container input {
+    border-radius: 5px;
+    border: solid 3px #f5c518;
+    background-color: #1a1a1a;
+    line-height: 1.5em;
+    font-weight: 600;
+    text-align: center;
+    color: white;
+    width: 100%;
+}
+
+.newsletter-container input:focus {
+    outline: none;
+    border-radius: 5px;
+    border: solid 3px #f5c518;
+}
+
+.suscribe-form label {
+    font-size: 1.2em;
+    margin-bottom: 1em;
+}
+
+.newsletter-container {
+    width: 40%;
+    margin: 0 auto;
+    display: flex;
+    /* box-sizing: border-box; */
+    align-items: center;
+}
+
+.newsletter-container button {
+    line-height: 0.5em;
+    background-color: #f5c518;
+    border: none;
+    border-radius: 5px;
+    color: black;
+    height: 2em;
+    margin-left: 1em;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.newsletter-container button:hover {
+    color: white;
+    transform: scale(1.05);
+}

@@ -1,0 +1,78 @@
+header {
+    background-color: #1a1a1a;
+    margin-bottom: 2em;
+}
+
+header h1 {
+    color:#f5c518;
+    font-size: 2em;
+    margin: auto 0;
+    padding: 0.3em 0;
+}
+
+header h2 {
+    color:#f5c518;
+    margin: auto 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10%;
+    height: 5em;
+}
+
+.menu {
+    align-items: center;
+    list-style: none;
+    display: flex;
+    padding: 0;
+}
+
+nav li a {
+    padding: 0 1.2em;
+    color:#f5c518;
+    text-decoration: none;
+    display: block;
+    font-size: 1.1em;
+}
+
+header nav ul li a.activo {
+    background-color: #f5c518;
+    opacity: 80%;
+    color: black;
+    border-radius: 2px;
+}
+
+.checkbtn {
+    color: #f5c518;
+    background-color: #1a1a1a;
+    border: none;
+    cursor: pointer;
+    font-size: 2em;
+    display: none;
+    position: absolute;
+    top: 1em;
+    right: 0.5em;
+}
+
+.check {
+    display: none;
+}
+
+.menu.show {
+    left: 0;
+}
+
+header.show {
+    margin-bottom: calc(100vh - 5em);
+} 
+
+@media screen and (max-width: 768px) {
+
+.checkbtn {
+    display: inline;
+}
+    
+}
+
