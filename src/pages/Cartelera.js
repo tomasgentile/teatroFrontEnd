@@ -83,10 +83,10 @@ function Cartelera(props) {
                                     resumen={element.resumen}
                                     nombre_teatro={element.nombre_teatro}
                                     fecha_inicio={element.fecha_inicio}
-                                    fecha_fin={element.fecha_fin} />
+                                    fecha_fin={element.fecha_fin} 
+                                />
                             )
                         })};
-                        ;
                     </div>
                 )}
             </section>

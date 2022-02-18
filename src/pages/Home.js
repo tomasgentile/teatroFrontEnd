@@ -1,7 +1,7 @@
 import '../styles/components/pages/Home.css';
 import Card from '../components/Card';
 import { Link } from 'react-router-dom';
-// import useWindowSize from '../components/WindowSize';
+import useWindowSize from '../components/WindowSize';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Slider from '../components/Slider';
@@ -11,24 +11,33 @@ const Home = (props) => {
     const [Obras, setObras] = useState([]);
     const [Cursos, setCursos] = useState([]);
     const [modal, setModal] = useState(false);
-    // const { width } = useWindowSize();
+    const [cantidadCards, setCantidadCards] = useState(6);
+    const { width } = useWindowSize();
 
     useEffect(() => {
         const cargarDatos = async () => {
             setLoadingDatos(true);
             const responseObras = await axios.get(`${process.env.REACT_APP_API_URL}/api/obras`);
-            setObras(responseObras.data);
             const responseCursos = await axios.get(`${process.env.REACT_APP_API_URL}/api/cursos`);
-            setCursos(responseCursos.data);
+
+            // Calcula la cantidad de Cards a mostrar en funcion del ancho de la pantalla
+            if (width < 1200 && width >= 1000) {
+                setCantidadCards(5);
+            } else if (width < 1000 && width >= 800) {
+                setCantidadCards(4);
+            } 
+            
+            setObras(responseObras.data.slice(0, cantidadCards)); 
+            setCursos(responseCursos.data.slice(0, cantidadCards));
             console.log('Datos cargados en Home');
             setLoadingDatos(false);
         };
         cargarDatos();
-    }, []);
+    }, [cantidadCards, width]);
 
     return (
         <main className="holder">
-            {/* <Slider datosObras={Obras}/> */}
+            <Slider />
             <div>
                 <div className="subtitles">
                     <h2>Cartelera</h2>

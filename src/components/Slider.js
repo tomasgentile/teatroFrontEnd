@@ -1,37 +1,52 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import '../styles/components/layout/Slider.css';
 import Modal from './Modal';
+import axios from 'axios';
 
-const Slider = ({ datosObras }) => {
-    const [currentSlide, setCurrentSlide] = useState(datosObras[0].imagen);
+const Slider = () => {
+    const [datosObras, setDatosObras] = useState([]);
+    const [loading, setLoading] = useState(false);
+    const [currentSlide, setCurrentSlide] = useState(datosObras);
     const [modalSlider, setModalSlider] = useState(false);
-    var contador = 0;
-    const incrementar = () => {
-        contador++;
-    }
+    const [contador, setContador] = useState(0);
 
-    const restar = () => {
-        contador--;
-    }
+    useEffect(() => {
+        setLoading(true);
+        const cargarDatos = async () => {
+            const responseObras = await axios.get(`${process.env.REACT_APP_API_URL}/api/obras`);
+            setDatosObras(responseObras.data);
+            setCurrentSlide(responseObras.data.slice(0, 1));
+        }
+        cargarDatos();
+        setLoading(false);
+        console.log('datos crgados en Slider');
+
+    }, []);
 
     function change_img_right() {
         if (contador < (datosObras.length - 1)) {
-            incrementar();
+            setContador(contador + 1);
+            console.log(contador);
         } else {
-            contador = 0;
+            setContador(0);
+            console.log(contador);
         }
-        setCurrentSlide(datosObras[contador].imagen);
+        setCurrentSlide(datosObras.slice(contador, contador + 1));
+        console.log(currentSlide);
     }
 
     function change_img_left() {
         if (contador === 0) {
-            contador = datosObras.length - 1;
+            setContador(datosObras.length - 1);
+            console.log(contador);
         } else {
-            restar();
+            setContador(contador - 1);
+            console.log(contador);
         }
-        setCurrentSlide(datosObras[contador].imagen);
+        setCurrentSlide(datosObras.slice(contador, contador + 1));
+        console.log(currentSlide);
     }
 
     function change_state() {
@@ -40,23 +55,38 @@ const Slider = ({ datosObras }) => {
 
     return (
         <section className="holder">
-            <div className="slider">
-                <button className="btn-slider" onClick={change_img_left}><FontAwesomeIcon icon={faChevronLeft} /></button>
-                <img id="big_img" src={currentSlide} alt="cartelera" />
-                <button id="btn-abrir" onClick={change_state}>+ Información</button>
-                <button className="btn-slider" onClick={change_img_right}><FontAwesomeIcon icon={faChevronRight} /></button>
-            </div>
-            {<Modal
-                estado={modalSlider}
-                cambiarEstado={setModalSlider}
-                titulo={datosObras[contador].nombre_obra}
-                elenco={datosObras[contador].elenco}
-                direccion={datosObras[contador].direccion}
-                horario_funciones={datosObras[contador].horario_funciones}
-                clasificacion={datosObras[contador].clasificacion}
-                resumen={datosObras[contador].resumen}
-                img={datosObras[contador].imagen}>
-            </Modal>}
+            {loading ? (
+                <p>Cargando</p>
+            ) : (
+                <section>
+                    <div className="slider">
+                        <button className="btn-slider" onClick={change_img_left}><FontAwesomeIcon icon={faChevronLeft} /></button>
+                        {currentSlide.map(slide =>
+                            <>
+                                <img id="big_img" src={slide.imagen} alt="cartelera" />
+                                <Modal
+                                    estado={modalSlider}
+                                    cambiarEstado={setModalSlider}
+                                    titulo={slide.nombre_obra}
+                                    elenco={slide.elenco}
+                                    direccion={slide.direccion}
+                                    horario_funciones={slide.horario_funciones}
+                                    clasificacion={slide.clasificacion}
+                                    resumen={slide.resumen}
+                                    nombre_teatro={slide.nombre_teatro}
+                                    fecha_inicio={slide.fecha_inicio}
+                                    fecha_fin={slide.fecha_fin}
+                                    img={slide.imagen}>
+                                </Modal>
+                            </>
+                        )}
+                        <button id="btn-abrir" onClick={change_state}>+ Información</button>
+                        <button className="btn-slider" onClick={change_img_right}><FontAwesomeIcon icon={faChevronRight} /></button>
+                    </div>
+                </section>
+            )}
+
+
         </section>
     );
 }

@@ -49,7 +49,7 @@ const Contacto = (props) => {
                         <input type="text" placeholder="Teléfono" name="telefono" value={formData.telefono} onChange={handleChange} />
                     </p>
                     <p>
-                        <textarea name="" id="" cols="30" rows="10" placeholder="Ingrese su mensaje" name="mensaje" value={formData.mensaje} onChange={handleChange} />
+                        <textarea cols="30" rows="10" placeholder="Ingrese su mensaje" name="mensaje" value={formData.mensaje} onChange={handleChange} />
                     </p>
                     <p className="acciones">
                         <input type="submit" value="Enviar" />
