@@ -25,7 +25,9 @@ const Home = (props) => {
                 setCantidadCards(5);
             } else if (width < 1000 && width >= 800) {
                 setCantidadCards(4);
-            } 
+            } else {
+                setCantidadCards(6);
+            }
             
             setObras(responseObras.data.slice(0, cantidadCards)); 
             setCursos(responseCursos.data.slice(0, cantidadCards));

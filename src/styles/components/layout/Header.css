@@ -76,3 +76,13 @@ header.show {
     
 }
 
+@media screen and (max-width: 480px) {
+    header {
+        padding-bottom: 0.5em;
+    }
+
+    header.show {
+        margin-bottom: calc(100vh - 5.5em);
+    } 
+}
+
