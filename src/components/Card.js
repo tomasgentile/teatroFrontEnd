@@ -17,6 +17,7 @@ const Card = (props) => {
                 <img src={img} alt="img obra" />
                 <button id="btn-open" onClick={change_state}>+ Información</button>
                 <h3>{title}</h3>
+                <p>{nombre_teatro}</p>
                 <p>{horario_funciones}</p>
             </div>
             <Modal

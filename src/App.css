@@ -19,6 +19,7 @@ body {
   header {
     height: 8em;
   }
+
   nav {
     flex-direction: column;
     padding: 0;
@@ -52,8 +53,6 @@ body {
   body {
     width: 100vw;
   }
-
-
 
 }
 
@@ -136,8 +135,6 @@ body {
       top: 8em;
       height: calc(100vh - 8em);
   }
-
-
 }
 
 

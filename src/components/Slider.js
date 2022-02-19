@@ -8,7 +8,7 @@ import axios from 'axios';
 const Slider = () => {
     const [datosObras, setDatosObras] = useState([]);
     const [loading, setLoading] = useState(false);
-    const [currentSlide, setCurrentSlide] = useState(datosObras);
+    const [currentSlide, setCurrentSlide] = useState([]);
     const [modalSlider, setModalSlider] = useState(false);
     const [contador, setContador] = useState(0);
 
@@ -54,40 +54,46 @@ const Slider = () => {
     }
 
     return (
-        <section className="holder">
+        <div className="holder">
             {loading ? (
                 <p>Cargando</p>
             ) : (
-                <section>
-                    <div className="slider">
-                        <button className="btn-slider" onClick={change_img_left}><FontAwesomeIcon icon={faChevronLeft} /></button>
-                        {currentSlide.map(slide =>
-                            <>
+                <div className="slider">
+                    <button className="btn-slider" onClick={change_img_left}><FontAwesomeIcon icon={faChevronLeft} /></button>
+                    
+                    {currentSlide.map(slide =>
+                        <>
+                            <div className="img-info">
                                 <img id="big_img" src={slide.imagen} alt="cartelera" />
-                                <Modal
-                                    estado={modalSlider}
-                                    cambiarEstado={setModalSlider}
-                                    titulo={slide.nombre_obra}
-                                    elenco={slide.elenco}
-                                    direccion={slide.direccion}
-                                    horario_funciones={slide.horario_funciones}
-                                    clasificacion={slide.clasificacion}
-                                    resumen={slide.resumen}
-                                    nombre_teatro={slide.nombre_teatro}
-                                    fecha_inicio={slide.fecha_inicio}
-                                    fecha_fin={slide.fecha_fin}
-                                    img={slide.imagen}>
-                                </Modal>
-                            </>
-                        )}
-                        <button id="btn-abrir" onClick={change_state}>+ Información</button>
-                        <button className="btn-slider" onClick={change_img_right}><FontAwesomeIcon icon={faChevronRight} /></button>
-                    </div>
-                </section>
+                                <div className="info-slider">
+                                    <h2>{slide.nombre_obra}</h2>
+                                    <h3>{slide.nombre_teatro}</h3>
+                                    <h3>{slide.horario_funciones}</h3>
+                                    <button id="btn-abrir" onClick={change_state}>+ Información</button>
+                                </div>
+                            </div>
+                            <Modal
+                                estado={modalSlider}
+                                cambiarEstado={setModalSlider}
+                                titulo={slide.nombre_obra}
+                                elenco={slide.elenco}
+                                direccion={slide.direccion}
+                                horario_funciones={slide.horario_funciones}
+                                clasificacion={slide.clasificacion}
+                                resumen={slide.resumen}
+                                nombre_teatro={slide.nombre_teatro}
+                                fecha_inicio={slide.fecha_inicio}
+                                fecha_fin={slide.fecha_fin}
+                                img={slide.imagen}>
+                            </Modal>
+                        </>
+                    )}
+                    <button className="btn-slider" onClick={change_img_right}><FontAwesomeIcon icon={faChevronRight} /></button>
+                </div>
             )}
 
 
-        </section>
+        </div>
     );
 }
 
