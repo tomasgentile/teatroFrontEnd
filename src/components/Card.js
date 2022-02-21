@@ -9,7 +9,6 @@ const Card = (props) => {
     function change_state() {
         setModalCard(true);
     }
-    console.log('render card');
 
     return (
         <main>

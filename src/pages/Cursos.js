@@ -18,7 +18,6 @@ const Cursos = (props) => {
             setCursos(response.data);
             setfilteredData(response.data);
             console.log('Datos cargados en cursos');
-            console.log(response.data);
             setLoadingCursos(false);
         };
         cargarDatos();

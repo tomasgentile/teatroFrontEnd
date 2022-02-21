@@ -18,7 +18,7 @@ const Header = (props) => {
     return (
         <header className={show ? null : 'show'}>
             <nav>
-                <div class="title">
+                <div className="title">
                     <h1><span><FontAwesomeIcon icon={faTheaterMasks} /></span>Ceres</h1>
                     <h2>Teatro Independiente Mar del Plata</h2>
                 </div>

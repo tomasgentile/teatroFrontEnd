@@ -12,8 +12,6 @@ const Modal = (props) => {
         cambiarEstado(false);
     }
 
-    console.log('render modal');
-
     return (
         <section>
             {estado &&

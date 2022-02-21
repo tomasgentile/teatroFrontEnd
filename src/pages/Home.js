@@ -1,10 +1,12 @@
 import '../styles/components/pages/Home.css';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import Card from '../components/Card';
 import { Link } from 'react-router-dom';
 import useWindowSize from '../components/WindowSize';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import Slider from '../components/Slider';
+import HomeSlider from '../components/HomeSlider';
 
 const Home = (props) => {
     const [loadingDatos, setLoadingDatos] = useState(false);
@@ -28,18 +30,18 @@ const Home = (props) => {
             } else {
                 setCantidadCards(6);
             }
-            
+
             setObras(responseObras.data.slice(0, cantidadCards)); 
             setCursos(responseCursos.data.slice(0, cantidadCards));
             console.log('Datos cargados en Home');
             setLoadingDatos(false);
         };
         cargarDatos();
-    }, [cantidadCards, width]);
+    }, [cantidadCards, width]); 
 
     return (
         <main className="holder">
-            <Slider />
+            <HomeSlider />
             <div>
                 <div className="subtitles">
                     <h2>Cartelera</h2>

@@ -64,6 +64,11 @@ header nav ul li a.activo {
     left: 0;
 }
 
+nav .show {
+    padding-top: 3em;
+    justify-content: start;
+}
+
 header.show {
     margin-bottom: calc(100vh - 5em);
 } 

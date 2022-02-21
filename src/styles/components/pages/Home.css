@@ -1,3 +1,4 @@
+
 /* Inicio Subtitles */
 
 .subtitles {
@@ -8,14 +9,14 @@
 .subtitles h2 {
     color: #f5c518;
     margin-top: 3em;
-    padding-left: 1em;
+    padding-left: 0.8em;
 }
 
 .subtitles a {
     color: #f5c518;
     font-size: 1.2em;
     margin-top: 4em;
-    padding-right: 1em;  
+    padding-right: 1.3em;  
     text-decoration: none; 
 }
 
@@ -66,14 +67,24 @@
 @media screen and (max-width: 1190px) {
 
 .subtitles h2 {
-    padding-left: 2em;
+    padding-left: 1.5em;
 } 
   
 .subtitles a {
-    padding-right: 2em;
+    padding-right: 2.2em;
 }
     
 .cards {
     width: 100%;
 }
 }  
+
+@media screen and (max-width: 1000px) {
+    .subtitles h2 {
+        padding-left: 2.3em;
+    } 
+      
+    .subtitles a {
+        padding-right: 3.2em;
+    }
+}

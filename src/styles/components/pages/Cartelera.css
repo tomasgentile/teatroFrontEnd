@@ -66,6 +66,14 @@ input:focus {
 }
 
 
+@media screen and (max-width: 768px) {
+       
+    .search-container {
+        width: 75%;
+    }
+}
+
+
 @media screen and (max-width: 480px) {
        
     .search-container {
