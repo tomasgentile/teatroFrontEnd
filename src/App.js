@@ -1,10 +1,8 @@
 import './normalize.css';
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
-
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
-
 import Home from './pages/Home';
 import Cartelera from './pages/Cartelera';
 import Teatros from './pages/Teatros';

@@ -73,7 +73,7 @@ header.show {
     margin-bottom: calc(100vh - 5em);
 } 
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 768px) {    
 
 .checkbtn {
     display: inline;

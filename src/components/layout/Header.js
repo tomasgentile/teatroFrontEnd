@@ -6,11 +6,11 @@ import { useState } from 'react';
 import useWindowSize from '../WindowSize';
 
 const Header = (props) => {
-    const { widthNav } = useWindowSize();
+    const { width } = useWindowSize();
     const [show, setshow] = useState('false');
 
     function toggleClass() {
-        if (widthNav < 768) {
+        if (width < 768) {
             setshow(!show);
         }
     };
